@@ -235,6 +235,7 @@
 
     .video-header-content p {
         font-size: 1.2rem;
+       line-height:10px;
         margin-bottom: 2rem;
         font-family: Arial, sans-serif;
     }
