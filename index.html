@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <style>
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #022041;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s;
+        }
+
+        .loader-drop-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            height: 200px;
+            width: 200px;
+        }
+
+        .loader-drop {
+            position: absolute;
+            top: -25%;
+            width: 100%;
+            height: 100%;
+            border-radius: 100% 5% 100% 100%;
+            transform: rotate(-45deg);
+            margin: 0px;
+            background: deepskyblue;
+            animation: loader-drip 4s forwards;
+        }
+
+        .loader-header {
+            color: white;
+            position: absolute;
+            font-size: 2.5em;
+            height: 1em;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            margin: auto;
+            text-align: center;
+            opacity: 0;
+            animation: loader-appear 2s 2.5s forwards;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: none;
+        }
+
+
+        .fade-in {
+            animation: loader-fadeIn 1s ease-in;
+        }
+
+        /* Loader animations */
+        @keyframes loader-drip {
+            45% {
+                top: 0;
+                border-radius: 100% 5% 100% 100%;
+                transform: rotate(-45deg);
+            }
+
+            100% {
+                top: 0;
+                transform: rotate(0deg);
+                border-radius: 100%;
+            }
+        }
+
+        @keyframes loader-appear {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes loader-fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes loader-dripple {
+            0% {
+                width: 150px;
+                height: 150px;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+                top: -20%;
+                opacity: 0;
+            }
+        }
+
+        /* Drop container ripple effect */
+        .loader-drop-container:before,
+        .loader-drop-container:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 55%;
+            right: 50%;
+            transform: translate(50%) rotateX(75deg);
+            border-radius: 100%;
+            opacity: 0;
+            width: 75%;
+            height: 75%;
+            border: 5px solid skyblue;
+            animation: loader-dripple 2s ease-out 1s;
+        }
+
+        .loader-drop-container:after {
+            animation: loader-dripple 2s ease-out 1.7s;
+        }
+
+      
+    </style>
+    <div class="loader-container">
+        <h1 class="loader-header">puremai</h1>
+        <div class="loader-drop-container">
+            <div class="loader-drop"></div>
+        </div>
+    </div>
+    <!-- loader -->
+    <section class="loader-main-content">
+        <!-- loader -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img src="./images/Asset 1mdpi.png" alt="Puremai Forbes Logo">
+
+                </div>
+
+                <ul class="navbar-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about-section">About Us</a></li>
+                    <li><a href="#help-section-main">Services</a></li>
+                    <li><a href="#trending-container">Products</a></li>
+                    <li><a href="#why-buy-cards-container">Plans</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="navbar-icons">
+                    <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" class="login-btn"><i class="fas fa-user"></i> Login</a>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- header section -->
+        <header class="video-header-container">
+            <!-- Using a placeholder video -->
+            <video class="video-video-background" autoplay muted loop playsinline>
+              <source src="./video/header.mp4" type="video/mp4">
+            </video>
+            
+            <div class="video-header-overlay"></div>
+            
+            <div class="video-header-content">
+              <h1>Welcome to Our Platform</h1>
+              <p>Discover amazing experiences and unleash your potential with our innovative solutions.</p>
+              <a href="contact.html" class="video-cta-button">Get Started</a>
+            </div>
+          </header>
+
+        <!-- <div class="header-slider-container">
+            <div class="header-slider">
+                <div class="header-slide header-active">
+                    <img src="images/headerimage1.jpg" alt="Slide 1">
+                    <div class="header-slide-overlay"></div>
+                    <div class="header-slide-content">
+                        <h2 class="header-slide-title">Experience Pure Water</h2>
+                        <p class="header-slide-description">Explore PureMai's advanced water purifiers, equipped with
+                            the
+                            latest filtration technology to ensure your family always has access to clean, safe, and
+                            refreshing water</p>
+                        <a href="#" class="header-slide-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="header-slide">
+                    <img src="images/headerimage2.jpg" alt="Slide 2">
+                    <div class="header-slide-overlay"></div>
+                    <div class="header-slide-content">
+                        <h2 class="header-slide-title">Purity You Can Trust</h2>
+                        <p class="header-slide-description">Our state-of-the-art purifiers are designed to remove
+                            impurities, providing you with the highest quality water for better health and peace of mind
+                        </p>
+                        <a href="#" class="header-slide-button">Explore Now</a>
+                    </div>
+                </div>
+                <div class="header-slide">
+                    <img src="images/headerimage3.jpg" alt="Slide 3">
+                    <div class="header-slide-overlay"></div>
+                    <div class="header-slide-content">
+                        <h2 class="header-slide-title">Innovative Water Solutions</h2>
+                        <p class="header-slide-description">From compact models to more powerful systems, PureMai offers
+                            a
+                            variety of water purifiers to suit your home’s needs, all while maintaining a focus on
+                            affordability and sustainability</p>
+                        <a href="#" class="header-slide-button">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-dots">
+                <span class="header-dot header-active"></span>
+                <span class="header-dot"></span>
+                <span class="header-dot"></span>
+            </div>
+
+            <div class="header-slider-controls">
+                <button class="header-slider-button header-prev">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="header-slider-button header-next">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        header section -->
+        <!-- about section -->
+        <section id="about-section" class="about-section">
+            <div class="about-container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>About Puremai</h2>
+                        <p>At PureMai, we are dedicated to providing affordable and high-quality water purification
+                            solutions, ensuring safe, clean, and pure drinking water for every home. Our mission is to
+                            make
+                            pure water accessible to all, using the latest in filtration technology to support
+                            healthier,
+                            more sustainable living</p>
+                        <p>We believe that clean water is essential to life, which is why we design innovative water
+                            purifiers that meet the evolving needs of our customers. Our purifiers feature a 5-stage
+                            filtration system that guarantees optimal performance and superior water quality. From
+                            advanced
+                            filtration to eco-friendly solutions, we are committed to providing reliable products that
+                            exceed customer expectations</p>
+                        <p>Whether you’re looking for a basic filtration system or a more advanced purifier, PureMai
+                            offers
+                            a range of products designed for different household needs. We value transparency,
+                            integrity,
+                            and ethical business practices, ensuring that every interaction with us reflects our
+                            commitment
+                            to your health and satisfaction</p>
+                        <div class="about-features">
+                            <div class="about-feature-item">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <span class="about-feature-text">Innovative Filtration Technology</span>
+                            </div>
+                            <div class="about-feature-item">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <span class="about-feature-text">Quality You Can Trust</span>
+                            </div>
+                            <div class="about-feature-item">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <span class="about-feature-text">Sustainable Solutions</span>
+                            </div>
+                            <div class="about-feature-item">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <span class="about-feature-text">Customer-Centric Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-image">
+                        <img src="./images/about-removebg-preview.png" alt="Water Purification System">
+                        <!-- <div class="about-experience-badge">
+                    25+ Years of Excellence
+                </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- about section -->
+
+        <!-- need help -->
+        <section id="help-section-main" class="help-section-main">
+            <div class="help-section">
+                <h2>Need help with your Purifier?</h2>
+                <div class="help-cards-container">
+                    <div class="help-card">
+                        <img src="images/service_booking.png" alt="Book a Service">
+                        <h3>Book a Service Appointment</h3>
+                    </div>
+                    <div class="help-card">
+                        <img src="images/view_product.png" alt="View My Devices">
+                        <h3>View My Products</h3>
+                    </div>
+                    <div class="help-card">
+                        <img src="images/AMC_plans.png" alt="Buy AMC Plans">
+                        <h3>Explore AMC Plans</h3>
+
+                    </div>
+                    <div class="help-card">
+                        <img src="images/replacement.png" alt="Replace Filter">
+                        <h3>Order Filter Replacement</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- need help -->
+
+        <!-- mechine section -->
+        <div class="mechine-container">
+            <div class="mechine-product-card mechine-aur">
+                <h2 class="mechine-title">KDS Scale Inhibitor, Power-Phos, CTO Activated Carbon, PP Cotton, UF
+                    Ultrafiltration Membrane </h2>
+                <div class="mechine-product-image-container">
+                    <img style="height: 300px;" src="images/38ltr.webp" alt="Aquaguard Aura 2X Life"
+                        class="mechine-product-image">
+                </div>
+                <h3 class="mechine-product-name">38000 Ltr Filter Capacity</h3>
+                <p class="mechine-price">Get it as low as ₹23,900</p>
+                <!-- <p class="mechine-discount">10% instant bank discount + 5% coupon*</p> -->
+                <a href="#" class="mechine-shop-button">Shop Now</a>
+            </div>
+
+            <div class="mechine-product-card mechine-blaze">
+                <h2 class="mechine-title">KDS Scale Inhibitor, Power-Phos, CTO Activated Carbon, PP Cotton, UF
+                    Ultrafiltration Membrane</h2>
+                <div class="mechine-product-image-container">
+                    <img style="height: 300px;" src="images/38ltr.webp" alt="Aquaguard Blaze Insta"
+                        class="mechine-product-image">
+                </div>
+                <h3 class="mechine-product-name">72000 Ltr Filter Capacity</h3>
+                <p class="mechine-price">Starting at ₹42,900</p>
+                <!-- <p class="mechine-discount">10% instant bank discount + 5% coupon*</p> -->
+                <a href="#" class="mechine-shop-button">Shop Now</a>
+            </div>
+        </div>
+
+        <!-- mechine section -->
+
+        <!-- trending products -->
+        <div id="trending-container" class="trending-container">
+            <h1>Trending Products</h1>
+
+            <div class="trending-carousel-container">
+                <button class="trending-nav-button trending-prev" disabled>←</button>
+                <button class="trending-nav-button trending-next">→</button>
+
+                <div class="trending-products-wrapper">
+                    <!-- Product cards here (same as before) -->
+                    <!-- Product 1 -->
+                    <div class="trending-product-card">
+                        <span class="trending-bestseller-badge">BESTSELLER</span>
+                        <a href="detail.html">
+                            <div class="trending-product-image">
+                                <img src="images/38ltr.webp" alt="Aquaguard Delight NXT">
+                            </div>
+                        </a>
+                        <h3 class="trending-product-name">5 Stage Filteration System with 38000 Ltr Filter Capacity</h3>
+                        <div class="trending-feature-tags">
+                            <span class="trending-feature-tag trending-tag-ro">Potable Purifier</span>
+
+                        </div>
+                        <div class="trending-price-section">
+                            <div class="trending-price-container">
+                                <span class="trending-current-price">₹23,900</span>
+                                <span class="trending-mrp">MRP ₹25,000</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="trending-product-card">
+                        <span class="trending-bestseller-badge">BESTSELLER</span>
+                        <a href="detail.html">
+                            <div class="trending-product-image">
+                                <img src="images/38ltr.webp" alt="Aquaguard Delight NXT">
+                            </div>
+                        </a>
+                        <h3 class="trending-product-name">5 Stage Filteration System with 72000 Ltr Filter Capacity</h3>
+                        <div class="trending-feature-tags">
+                            <span class="trending-feature-tag trending-tag-ro">Potable Purifier</span>
+
+                        </div>
+                        <div class="trending-price-section">
+                            <div class="trending-price-container">
+                                <span class="trending-current-price">₹42,900</span>
+                                <span class="trending-mrp">MRP ₹44,000</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+
+                    <div class="trending-product-card" style="background-color: rgb(245, 244, 244);">
+
+                        <div class="trending-product-image" style="margin-top:50%">
+                            <img src="images/new.png" alt="Aquaguard Delight NXT">
+                        </div>
+
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="trending-product-card" style="background-color: rgb(245, 244, 244);">
+
+                        <div class="trending-product-image" style="margin-top:50%">
+                            <img src="images/new.png" alt="Aquaguard Delight NXT">
+                        </div>
+
+                    </div>
+                    <!-- product 5 -->
+                    <!-- Product 4 -->
+                    <div class="trending-product-card" style="background-color: rgb(245, 244, 244);">
+
+                        <div class="trending-product-image" style="margin-top:50%">
+                            <img src="images/new.png" alt="Aquaguard Delight NXT">
+                        </div>
+
+                    </div>
+                    <!-- Add the remaining product cards here -->
+                    <!-- Product 2-5 (same structure as Product 1) -->
+                </div>
+            </div>
+        </div>
+
+        <!-- trending products -->
+
+        <!-- why buy -->
+
+        <div id="why-buy-section" class="why-buy-section">
+            <h2>Why buy from puremai.com?</h2>
+            <div id="why-buy-cards-container" class="why-buy-cards-container">
+                <div class="why-buy-card">
+                    <div class="why-buy-icon">💰</div>
+                    <h3>Instant Savings</h3>
+                    <p>Enjoy a 10% discount instantly on all purchases made with any debit or credit card</p>
+                </div>
+                <div class="why-buy-card">
+                    <div class="why-buy-icon">🔄</div>
+                    <h3>Exchange and Save</h3>
+                    <p>Trade in your old device and save up to ₹3,000 on your new purchase</p>
+                </div>
+                <div class="why-buy-card">
+                    <div class="why-buy-icon">💵</div>
+                    <h3>Flexible Payment Options</h3>
+                    <p>Benefit from no-cost EMIs for up to 6 months on orders above ₹10,000</p>
+                </div>
+                <div class="why-buy-card">
+                    <div class="why-buy-icon">🪙</div>
+                    <h3>Exclusive Online Coupons</h3>
+                    <p>Unlock additional exclusive coupons when you log in</p>
+                </div>
+            </div>
+        </div>
+        <!-- why buy -->
+
+
+
+        <!-- service section -->
+        <main class="service-pri-section-main">
+            <section class="service-pri-section">
+                <div class="service-pri-heading">
+                    <h1>Genuine AMC service & filters</h1>
+                    <p>Buy AMC online to get up to 20% off today.</p>
+                    <button>Find plans for my device</button>
+                </div>
+
+                <!-- Cards Section -->
+                <div class="service-pri-card-container">
+                    <div class="service-pri-card">
+                        <img style="width: 50px;" src="images/check-list.png" alt="">
+                        <h3>Aquaguard Genuine AMC</h3>
+                        <p>Filter & tank cleaning with unlimited breakdown visits.</p>
+                    </div>
+                    <div class=" service-pri-card">
+                        <img style="width: 50px;" src="images/check-list.png" alt="">
+                        <h3>Annual filter replacement</h3>
+                        <p>Get genuine filters & free filter replacement, based on plan.</p>
+                    </div>
+                    <div class="service-pri-card">
+                        <img style="width: 50px;" src="images/check-list.png" alt="">
+                        <h3> Aquaguard Genuine spares</h3>
+                        <p>All parts including electronics & pump with free replacement.</p>
+                    </div>
+                    <div class="service-pri-card">
+                        <img style="width: 50px;" src="images/check-list.png" alt="">
+                        <h3> A legacy of trust & quality</h3>
+                        <p>Trusted brand for over 40 years with 8500+ service technicians.</p>
+                    </div>
+                </div>
+
+                <!-- Video Section -->
+                <div class="service-pri-video-container" onclick="openVideoPopup()">
+                    <img src="images/vdo.png" alt="Video Thumbnail">
+                    <div class="service-pri-play-button"></div>
+                    <div class="service-pri-video-description">Why are Aquaguard Genuine Filters superior?</div>
+                </div>
+            </section>
+
+            <!-- Video Popup -->
+            <div class="service-pri-video-popup" id="videoPopup">
+                <div class="service-pri-video-popup-content">
+                    <button class="service-pri-close-popup" onclick="closeVideoPopup()">×</button>
+                    <iframe id="videoIframe" src="" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </main>
+        <!-- service section -->
+        <!-- testimonials start -->
+        <div class="testimonials-section-main">
+            <section class="testimonials-section">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonials-card">
+                        <svg class="profile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                        </svg>
+                        <div class="testimonials-header">
+                            <div class="testimonials-name-date">
+                                <span class="testimonials-name">Priya S</span>
+                                <span class="testimonials-date">- March 15, 2024</span>
+                            </div>
+                            <div class="testimonials-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonials-content">
+                            <p>We’ve been using the PureMai water purifier for over six months, and the water quality is
+                                remarkable! My family can taste the difference, and knowing we’re drinking the cleanest
+                                water brings me peace of mind. Highly recommend this for every household</p>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <svg class="profile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                        </svg>
+                        <div class="testimonials-header">
+                            <div class="testimonials-name-date">
+                                <span class="testimonials-name">Rajesh K</span>
+                                <span class="testimonials-date">- MaY 2, 2024</span>
+                            </div>
+                            <div class="testimonials-rating">★★★★☆</div>
+                        </div>
+                        <div class="testimonials-content">
+                            <p>PureMai has truly made clean water accessible and hassle-free. The maintenance is simple,
+                                and the design fits perfectly in our kitchen. The filter replacement alert feature is a
+                                bonus—it’s a one-stop solution for pure water at home!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <svg class="profile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                        </svg>
+                        <div class="testimonials-header">
+                            <div class="testimonials-name-date">
+                                <span class="testimonials-name">Latha M</span>
+                                <span class="testimonials-date">- March 8, 2024</span>
+                            </div>
+                            <div class="testimonials-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonials-content">
+                            <p>With PureMai, we have clean, odorless water on demand. No more plastic bottles, no
+                                boiling—it’s just pure, filtered water! The after-sales service is also very responsive,
+                                and they truly care about their customers</p>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <svg class="profile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                        </svg>
+                        <div class="testimonials-header">
+                            <div class="testimonials-name-date">
+                                <span class="testimonials-name">Aravind P</span>
+                                <span class="testimonials-date">- December 30, 2024</span>
+                            </div>
+                            <div class="testimonials-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonials-content">
+                            <p>We tried several purifiers, but nothing matched the taste and quality of PureMai. It
+                                filters out all the impurities and keeps essential minerals intact. I can’t imagine
+                                going back to tap water after this. Completely satisfied!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- testimonials end section -->
+
+
+
+        <!--  Footer -->
+        <section class="footer-main ">
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h4>Get In Touch</h4>
+                        <a href="#video-header">Home</a>
+                        <a href="#about-section">About Us</a>
+                        <a href="#help-section-main">Services</a>
+                        <a href="#trending-container">Products</a>
+                        <a href="#why-buy-cards-container">Plans</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Popular product</h4>
+                        <a href="#">Low Filter Capacity</a>
+                        <a href="#">High Filter Capacity</a>
+                        <a href="#">Whole House Water Filters</a>
+                        <a href="#">Industrial Purifiers</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Why Choose Us?</h4>
+                        <p>Certified & Reliable</p>
+                        <p>Expert Customer Service</p>
+                        <p>Nationwide Delivery</p>
+                        <p>Affordable Prices</p>
+
+                    </div>
+                    <div class="footer-section">
+                        <h4>Registered Address</h4>
+                        <p>B1/B2, 701, 7th Floor, Marathon Innova, Off. Ganpatrao Kadam Marg, Lower Parel (West),
+                            Mumbai, Maharashtra – 400013</p>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    <p>More ways to shop: <a href="tel:1860266177">Call 1860 2661 177</a></p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>&copy; 2024 Puremai. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Legal</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                    <p class="disclaimer">Disclaimer: The displayed product colours and shades are indicative and cannot
+                        be considered to be a precise representation of the actual colours.</p>
+                </div>
+            </footer>
+        </section>
+        <!--  Footer -->
+    </section>
+
+    <script>
+        const headerSlider = document.querySelector('.header-slider');
+        const headerSlides = document.querySelectorAll('.header-slide');
+        const headerDots = document.querySelectorAll('.header-dot');
+        const headerPrevButton = document.querySelector('.header-prev');
+        const headerNextButton = document.querySelector('.header-next');
+
+        let currentSlide = 0;
+        let startX;
+        let isDragging = false;
+        let dragOffset = 0;
+
+        function updateSlider() {
+            headerSlider.style.transform = `translateX(${-currentSlide * 100}%)`;
+
+            // Update active states
+            headerSlides.forEach(slide => slide.classList.remove('header-active'));
+            headerDots.forEach(dot => dot.classList.remove('header-active'));
+
+            headerSlides[currentSlide].classList.add('header-active');
+            headerDots[currentSlide].classList.add('header-active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % headerSlides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + headerSlides.length) % headerSlides.length;
+            updateSlider();
+        }
+
+        function handleDragStart(e) {
+            isDragging = true;
+            startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+            dragOffset = 0;
+        }
+
+        function handleDragMove(e) {
+            if (!isDragging) return;
+
+            e.preventDefault();
+            const currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+            dragOffset = currentX - startX;
+
+            const percentage = (dragOffset / headerSlider.offsetWidth) * 100;
+            headerSlider.style.transform = `translateX(${-currentSlide * 100 + percentage}%)`;
+        }
+
+        function handleDragEnd() {
+            if (!isDragging) return;
+
+            isDragging = false;
+            const threshold = headerSlider.offsetWidth * 0.2;
+
+            if (Math.abs(dragOffset) > threshold) {
+                if (dragOffset > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            } else {
+                updateSlider();
+            }
+        }
+
+        // Event Listeners
+        headerPrevButton.addEventListener('click', prevSlide);
+        headerNextButton.addEventListener('click', nextSlide);
+
+        headerDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+
+        // Touch and mouse event listeners
+        headerSlider.addEventListener('mousedown', handleDragStart);
+        headerSlider.addEventListener('touchstart', handleDragStart);
+
+        window.addEventListener('mousemove', handleDragMove);
+        window.addEventListener('touchmove', handleDragMove, { passive: false });
+
+        window.addEventListener('mouseup', handleDragEnd);
+        window.addEventListener('touchend', handleDragEnd);
+
+        // Auto-advance slides
+        setInterval(nextSlide, 5000);
+
+        // Prevent context menu on long press
+        headerSlider.addEventListener('contextmenu', (e) => e.preventDefault());
+    </script>
+    <!-- header section -->
+    <!-- navbar section -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Add scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.7rem 5%';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
+    <!-- navbar section -->
+
+    <!-- service  -->
+    <script>
+        function openVideoPopup() {
+            const popup = document.getElementById('videoPopup');
+            const iframe = document.getElementById('videoIframe');
+            popup.classList.add('active');
+            iframe.src = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1'; // Replace 'YOUR_VIDEO_ID' with the actual video ID
+        }
+
+        function closeVideoPopup() {
+            const popup = document.getElementById('videoPopup');
+            const iframe = document.getElementById('videoIframe');
+            popup.classList.remove('active');
+            iframe.src = ''; // Stop video playback
+        }
+    </script>
+    <!-- service  -->
+
+    <!-- new launch -->
+
+    <script>
+        const wrapper = document.getElementById('productsWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let scrollPosition = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // Enhanced card width calculation
+        const getCardWidth = () => {
+            const card = document.querySelector('.card-slide-product-card');
+            const style = window.getComputedStyle(card);
+            const width = card.offsetWidth;
+            const gap = parseInt(getComputedStyle(wrapper).gap) || 20;
+            return width + gap;
+        };
+
+        const slide = direction => {
+            const cardWidth = getCardWidth();
+            const totalScrollWidth = wrapper.scrollWidth;
+            const maxScrollPosition = totalScrollWidth - wrapper.clientWidth;
+
+            if (direction === 'next') {
+                if (scrollPosition < maxScrollPosition) {
+                    scrollPosition += cardWidth;
+                    wrapper.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } else if (direction === 'prev') {
+                if (scrollPosition > 0) {
+                    scrollPosition -= cardWidth;
+                    wrapper.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        };
+
+        // Enable/disable the navigation buttons
+        const updateNavButtons = () => {
+            const cardWidth = getCardWidth();
+            const totalScrollWidth = wrapper.scrollWidth;
+            const maxScrollPosition = totalScrollWidth - wrapper.clientWidth;
+
+            prevBtn.disabled = scrollPosition === 0;
+            nextBtn.disabled = scrollPosition === maxScrollPosition;
+        };
+
+        wrapper.addEventListener('scroll', () => {
+            updateNavButtons();
+        });
+
+        // Touch event handling
+        wrapper.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        wrapper.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX - touchEndX > 50) {
+                slide('next');
+            } else if (touchEndX - touchStartX > 50) {
+                slide('prev');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            updateNavButtons();
+        });
+    </script>
+
+    <!-- new launch -->
+
+    <!-- trending products -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const wrapper = document.querySelector('.trending-products-wrapper');
+            const prevButton = document.querySelector('.trending-nav-button.trending-prev');
+            const nextButton = document.querySelector('.trending-nav-button.trending-next');
+            const cards = document.querySelectorAll('.trending-product-card');
+
+            let currentIndex = 0;
+            let cardWidth = cards[0].offsetWidth + 24; // Including margin
+            let cardsPerView = Math.floor(wrapper.offsetWidth / cardWidth);
+
+            // Update values on resize
+            window.addEventListener('resize', () => {
+                cardWidth = cards[0].offsetWidth + 24;
+                cardsPerView = Math.floor(wrapper.offsetWidth / cardWidth);
+                updateSlidePosition();
+                updateButtonStates();
+            });
+
+            function updateSlidePosition() {
+                wrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+
+            function updateButtonStates() {
+                prevButton.disabled = currentIndex <= 0;
+                nextButton.disabled = currentIndex >= cards.length - cardsPerView;
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlidePosition();
+                    updateButtonStates();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < cards.length - cardsPerView) {
+                    currentIndex++;
+                    updateSlidePosition();
+                    updateButtonStates();
+                }
+            });
+
+            updateButtonStates();
+        });
+    </script>
+    <!-- trending products -->
+    <!-- loader -->
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.querySelector('.loader-container');
+            const mainContent = document.querySelector('.loader-main-content');
+
+            // Hide loader and show content after 5 seconds
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                mainContent.style.display = 'block';
+                mainContent.classList.add('fade-in');
+
+                // Remove loader from DOM after fade out
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 5000);
+        });
+    </script>
+    <!-- loader -->
+
+</body>
+
+</html>

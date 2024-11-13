@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .detail-breadcrumb {
+            padding: 15px 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .detail-breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .detail-breadcrumb span {
+            margin: 0 8px;
+            color: #999;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .detail-product-gallery {
+            position: relative;
+        }
+
+        .detail-main-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .detail-thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .detail-thumbnail {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .detail-thumbnail:hover {
+            border-color: #b87d5e;
+        }
+
+        .detail-product-info {
+            padding: 20px 0;
+            height: 600px;
+            /* Adjust this height as needed */
+            overflow-y: auto;
+            scrollbar-width: thin;
+            /* For Firefox */
+            scrollbar-color: #ffffff #ffffff;
+        }
+
+        /* Webkit-based browsers (Chrome, Edge, Safari) */
+        .detail-product-info::-webkit-scrollbar {
+            width: 1px;
+            /* Width of the scrollbar */
+        }
+
+        .detail-product-info::-webkit-scrollbar-thumb {
+            background-color: #626262;
+            /* Thumb color */
+            border-radius: 2px;
+        }
+
+        .detail-product-info::-webkit-scrollbar-thumb:hover {
+            background-color: #cacaca;
+            /* Darker shade on hover */
+        }
+
+        .detail-product-info::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            /* Track color */
+            border-radius: 4px;
+        }
+
+        .detail-product-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .detail-product-subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .detail-section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 30px 0 20px;
+        }
+
+        .detail-purification-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-option-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .detail-option-card.selected {
+            border-color: #007bff;
+            background: #f8f9ff;
+        }
+
+        .detail-option-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-radio-button {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #999;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .selected .detail-radio-button {
+            border-color: #007bff;
+            background: #007bff;
+            box-shadow: inset 0 0 0 4px white;
+        }
+
+        .detail-option-description {
+            margin-left: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .detail-mineral-section {
+            margin-top: 30px;
+        }
+
+        .detail-mineral-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .detail-mineral-icon {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .detail-included-section,
+        .detail-benefits-section {
+            margin-top: 40px;
+        }
+
+        .detail-included-list {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .detail-included-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .detail-included-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-check-icon {
+            color: #22c55e;
+            font-size: 1.2em;
+        }
+
+        .detail-benefits-container {
+            background: #fff9f0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .detail-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-benefit-icon {
+            width: 24px;
+            height: 24px;
+            color: #b87d5e;
+        }
+
+        .detail-benefit-text {
+            flex: 1;
+            font-size: 0.95em;
+        }
+
+        .detail-section-heading {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+
+            .detail-included-section,
+            .detail-benefits-section {
+                margin-top: 30px;
+            }
+
+            .detail-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .detail-product-title {
+                font-size: 1.5em;
+            }
+
+            .detail-product-subtitle {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="detail-breadcrumb">
+        <a href="#">Home</a> <span>›</span>
+        <a href="#">Water Purifiers</a> <span>›</span>
+        <a href="#">Active Copper</a> <span>›</span>
+        <span>Aquaguard Marvel NXT</span>
+    </nav> -->
+
+    <div class="detail-container">
+        <div class="detail-product-gallery">
+            <img src="images/38ltr.webp" alt="Aquaguard Marvel NXT" class="detail-main-image">
+            <div class="detail-thumbnail-container">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/GY/ES/TC/42215823/ro-uv-water-purifier-parts-500x500.jpg"
+                    alt="Product Feature 1" class="detail-thumbnail">
+                <img src="https://5.imimg.com/data5/AN/HJ/RC/SELLER-46003865/water-purifier-spare-part.jpg"
+                    alt="Product Feature 2" class="detail-thumbnail">
+                <img src="https://5.imimg.com/data5/ANDROID/Default/2020/10/QX/VA/FK/33750563/product-jpeg-500x500.jpg"
+                    alt="Product Feature 3" class="detail-thumbnail">
+                <img src="https://www.citywaterpurifier.com/wp-content/uploads/2022/10/Sediment-Filter-Combo-Pack-5pcs-600x600.jpeg"
+                    alt="Product Feature 4" class="detail-thumbnail">
+                <img src="https://5.imimg.com/data5/ANDROID/Default/2021/5/DU/CU/XH/26138944/81gtk29us1l-ac-sl1500-jpg.jpg"
+                    alt="Product Feature 5" class="detail-thumbnail">
+            </div>
+        </div>
+
+        <div class="detail-product-info">
+            <h1 class="detail-product-title">Puremai Under Sink Water Filteration System</h1>
+            <h2 class="detail-product-subtitle">5 Stage Filteration System</h2>
+
+            <div class="detail-purification-section">
+                <h3 class="detail-section-title">Easy Installation - Easy maintenance - Easy Replacement</h3>
+                <div class="detail-purification-options">
+                    <div class="detail-option-card selected">
+                        <h3>
+                            <span class="detail-radio-button"></span>
+                            38000 Ltr Filter Capacity
+                        </h3>
+                        <p class="detail-option-description">
+                            KDS Scale Inhibitor, Power-Phos, CTO Activated Carbon, PP Cotton, UF
+                            Ultrafiltration Membrane
+                        </p>
+                    </div>
+                    <div class="detail-option-card">
+                        <h3>
+                            <span class="detail-radio-button"></span>
+                            72000 Ltr Filter Capacity
+                        </h3>
+                        <p class="detail-option-description">
+                            KDS Scale Inhibitor, Power-Phos, CTO Activated Carbon, PP Cotton, UF
+                            Ultrafiltration Membrane
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-included-section">
+                <h3 class="detail-section-heading">Also Included</h3>
+                <div class="detail-included-list">
+                    <div class="detail-included-item">
+                        <span class="detail-check-icon">✓</span>
+                        <span>Comes with a 5-litre in-built storage tank</span>
+                    </div>
+                    <div class="detail-included-item">
+                        <span class="detail-check-icon">✓</span>
+                        <span>10 Stage Advanced Purification</span>
+                    </div>
+                    <div class="detail-included-item">
+                        <span class="detail-check-icon">✓</span>
+                        <span>Taste Adjuster ensures Sweet Tasting Water, Always!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-benefits-section">
+                <h3 class="detail-section-heading">Benefits of Active Copper</h3>
+                <div class="detail-benefits-container">
+                    <div class="detail-benefit-item">
+                        <div class="detail-benefit-icon">🔥</div>
+                        <div class="detail-benefit-text">
+                            Active Copper Technology provides goodness of copper with RO+UV+UF technology
+                        </div>
+                    </div>
+                    <div class="detail-benefit-item">
+                        <div class="detail-benefit-icon">💧</div>
+                        <div class="detail-benefit-text">
+                            Suitable for all water sources: municipal, borewell, and tanker.
+                        </div>
+                    </div>
+                    <div class="detail-benefit-item">
+                        <div class="detail-benefit-icon">✔️</div>
+                        <div class="detail-benefit-text">
+                            Inbuilt storage of 5 litres with LED indicators for tank full, purification process &
+                            service alerts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click handlers for option cards
+        document.querySelectorAll('.detail-option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.detail-option-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+
+        // Add click handlers for thumbnails
+        document.querySelectorAll('.detail-thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const mainImage = document.querySelector('.detail-main-image');
+                mainImage.src = thumb.src.replace('80/80', '500/600');
+            });
+        });
+    </script>
+</body>
+
+</html>

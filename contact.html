@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="./images/Asset 1mdpi.png" alt="Puremai Forbes Logo">
+
+            </div>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about-section">About Us</a></li>
+                <li><a href="index.html#help-section-main">Services</a></li>
+                <li><a href="index.html#trending-container">Products</a></li>
+                <li><a href="index.html#why-buy-cards-container">Plans</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-icons">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="contact-floating-shapes">
+        <div class="contact-shape"></div>
+        <div class="contact-shape"></div>
+        <div class="contact-shape"></div>
+    </div>
+    
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>Have a question or want to work together? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+    
+        <div class="contact-main-content">
+            <div class="contact-map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445135!2d-74.25986613799748!3d40.69714941774136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1699905600000!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+    
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="contact-form-grid">
+                        <div class="contact-form-group">
+                            <label for="name">Full Name</label>
+                            <input  class="contact-input" type="text" id="name" name="name" required placeholder="John Doe" autocomplete="name">
+                        </div>
+                        <div class="contact-form-group">
+                            <label for="email">Email Address</label>
+                            <input   class="contact-input" type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
+                        </div>
+                        <div class="contact-form-group">
+                            <label for="phone">Phone Number</label>
+                            <input class="contact-input" type="tel" id="phone" name="phone" placeholder="+1 (234) 567-8900" autocomplete="tel">
+                        </div>
+                        <div class="contact-form-group">
+                            <label for="subject">Subject</label>
+                            <input  class="contact-input" type="text" id="subject" name="subject" required placeholder="How can we help?">
+                        </div>
+                        <div class="contact-form-group contact-full-width">
+                            <label for="message">Your Message</label>
+                            <textarea style="width: 100%;" class="contact-textarea" id="message" name="message" required placeholder="Write your message here..."></textarea>
+                        </div>
+                    </div>
+                    <button class="contact-button" type="submit">Send Message</button>
+                    <div class="contact-success-message" id="successMessage">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>123 Innovation Drive</p>
+                <p>New York, NY 10001</p>
+            </div>
+            <div class="contact-info-item">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p>+1 (234) 567-8900</p>
+                <p>Mon-Fri, 9am-6pm EST</p>
+            </div>
+            <div class="contact-info-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>hello@example.com</p>
+                <p>support@example.com</p>
+            </div>
+        </div>
+    </div>
+    
+ <!--  Footer -->
+ <section class="footer-main ">
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <a href="#video-header">Home</a>
+                <a href="#about-section">About Us</a>
+                <a href="#help-section-main">Services</a>
+                <a href="#trending-container">Products</a>
+                <a href="#why-buy-cards-container">Plans</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h4>Popular product</h4>
+                <a href="#">Low Filter Capacity</a>
+                <a href="#">High Filter Capacity</a>
+                <a href="#">Whole House Water Filters</a>
+                <a href="#">Industrial Purifiers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Why Choose Us?</h4>
+                <p>Certified & Reliable</p>
+                <p>Expert Customer Service</p>
+                <p>Nationwide Delivery</p>
+                <p>Affordable Prices</p>
+
+            </div>
+            <div class="footer-section">
+                <h4>Registered Address</h4>
+                <p>B1/B2, 701, 7th Floor, Marathon Innova, Off. Ganpatrao Kadam Marg, Lower Parel (West),
+                    Mumbai, Maharashtra – 400013</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>More ways to shop: <a href="tel:1860266177">Call 1860 2661 177</a></p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 Puremai. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Legal</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <p class="disclaimer">Disclaimer: The displayed product colours and shades are indicative and cannot
+                be considered to be a precise representation of the actual colours.</p>
+        </div>
+    </footer>
+</section>
+<!--  Footer -->
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        });
+    
+        // Add smooth scroll for iOS
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+      <!-- navbar section -->
+      <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Add scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.7rem 5%';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
+    <!-- navbar section -->
+
+</body>
+</html>
